@@ -1,0 +1,15 @@
+## spring properties
+# service registers under the name
+spring:
+   application:
+      name: accounts-microservice
+
+# Discovery server access
+eureka:
+   client:
+     serviceUrl:
+       defaultZone: http://localhost:8080/eureka/
+
+# HTTP Server (Tomcat) Port
+server:
+  port: 2345

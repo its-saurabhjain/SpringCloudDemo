@@ -1,0 +1,7 @@
+spring.application.name: Employee-Producer
+#  Eureka property moved to config server
+#eureka.client.serviceUrl.defaultZone=http://localhost:8080/eureka
+#server.port=8081
+#Required for multiple instance of service
+eureka.instance.instanceId=${spring.application.name}:${random.value}
+server.port=${random.int[1,10000]}
