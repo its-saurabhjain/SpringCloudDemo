@@ -15,14 +15,14 @@ import org.springframework.web.client.RestTemplate;
 
 //import com.netflix.discovery.DiscoveryClient;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
-import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
+//import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 
 public class ConsumerControllerClient {
-	//added coded for dynamic service discovery
-	//@Autowired
-	//private DiscoveryClient discoveryClient;
+	//added coded for dynamic service discovery & Zuul API Gateway
 	@Autowired
-	private LoadBalancerClient loadBalancer;
+	private DiscoveryClient discoveryClient;
+	//@Autowired
+	//private LoadBalancerClient loadBalancer;
 	
 	public void getEmployee() throws RestClientException, IOException {
 
@@ -31,12 +31,19 @@ public class ConsumerControllerClient {
 		//List<ServiceInstance> instances= this.discoveryClient.getInstances("EMPLOYEE-PRODUCER");
 		//ServiceInstance serviceInstance=instances.get(0);
 		
+		/*//uncomment for Load balancing 
 		ServiceInstance serviceInstance=loadBalancer.choose("EMPLOYEE-PRODUCER");
 		String baseUrl=serviceInstance.getUri().toString();
 		System.out.println(serviceInstance.getUri());
+					
+		baseUrl=baseUrl+"/employee"; */
 		
-			
-		baseUrl=baseUrl+"/employee";
+		//for Zuul API gateway
+		List<ServiceInstance> instances= this.discoveryClient.getInstances("APIGATEWAY-ZUUL-SERVICE");
+		ServiceInstance serviceInstance=instances.get(0);
+		String baseUrl = serviceInstance.getUri().toString();
+
+		baseUrl = baseUrl + "/producer/employee";
 				
 		RestTemplate restTemplate = new RestTemplate();
 		ResponseEntity<String> response=null;

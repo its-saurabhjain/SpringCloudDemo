@@ -4,4 +4,10 @@
 <fullyQualifiedTypeName name="org.springframework.cloud.netflix.eureka.server.EnableEurekaServer"/>
 <fullyQualifiedTypeName name="org.springframework.cloud.netflix.eureka.EnableEurekaClient"/>
 <fullyQualifiedTypeName name="org.springframework.cloud.client.discovery.EnableDiscoveryClient"/>
+<fullyQualifiedTypeName name="org.springframework.cloud.netflix.zuul.EnableZuulProxy"/>
+<fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
+<fullyQualifiedTypeName name="com.example.demo.filter.PreFilter"/>
+<fullyQualifiedTypeName name="com.example.demo.filter.PostFilter"/>
+<fullyQualifiedTypeName name="com.example.demo.filter.ErrorFilter"/>
+<fullyQualifiedTypeName name="com.example.demo.filter.RouteFilter"/>
 </qualifiedTypeNameHistroy>

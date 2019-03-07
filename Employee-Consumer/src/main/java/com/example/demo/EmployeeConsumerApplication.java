@@ -22,8 +22,8 @@ public class EmployeeConsumerApplication {
 		System.out.println(consumerControllerClient);
 		consumerControllerClient.getEmployee();
 		//to simulate Circuit breaker invoke the method multiple time
-		for(int i=0;i<100;i++)		
-			consumerControllerClient.getEmployee();
+		/*for(int i=0;i<100;i++)		
+			consumerControllerClient.getEmployee();*/
 		
 	}
 	@Bean
